@@ -17,7 +17,7 @@ pipeline {
         IMAGE_NAME   = 'ashokch11/calculator-devops'
         IMAGE_TAG    = "${env.BUILD_NUMBER}"
         PROXY_PORT   = '8090'
-        NOTIFY_EMAIL = 'ashokreddy.ch1145@gmail.com'
+        NOTIFY_EMAIL = 'ashokreddy.ch32@gmail.com'
     }
 
     stages {
