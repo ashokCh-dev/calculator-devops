@@ -1,7 +1,7 @@
 ---
 title: "End-to-End CI/CD Pipeline for a Calculator REST API"
 subtitle: "CSE 816 Software Production Engineering: Mini-Project Report"
-author: "Ashok (Roll No: ________)"
+author: "Ashok Reddy (IMT2023083)"
 date: "30 October 2026"
 geometry: margin=1.6cm
 fontsize: 10pt
@@ -109,6 +109,18 @@ Credentials exist only in Jenkins.
 
 All six stages pass. The pipeline publishes the JUnit results (28 tests passing), pushes the image
 to Docker Hub, and deploys the stack. `docker ps` shows `calculator-1`, `calculator-2`, and
-`calculator-nginx` as *healthy*. The screenshots (green pipeline run, notification email,
-`docker ps`, sample API responses) are in `docs/screenshots/`. For the live demo, a code change is
+`calculator-nginx` as *healthy*. The screenshots in the appendix (build page, notification email,
+`docker ps`, sample API responses) are also in `docs/screenshots/`. For the live demo, a code change is
 pushed to GitHub and the pipeline deploys it automatically.
+
+\newpage
+
+# Appendix: Screenshots
+
+![Jenkins build #2: successful run with tests passing](screenshots/jenkins-build.png){ width=100% }
+
+![Build status email sent by Jenkins](screenshots/email-notification.png){ width=100% }
+
+![`docker ps`: both API replicas and the Nginx proxy healthy, running image tag 2](screenshots/docker-ps.png){ width=100% }
+
+![Sample API responses through the Nginx proxy on port 8090](screenshots/api-responses.png){ width=100% }
