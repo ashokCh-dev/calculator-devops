@@ -109,13 +109,15 @@ Credentials exist only in Jenkins.
 
 All six stages pass. The pipeline publishes the JUnit results (28 tests passing), pushes the image
 to Docker Hub, and deploys the stack. `docker ps` shows `calculator-1`, `calculator-2`, and
-`calculator-nginx` as *healthy*. The screenshots in the appendix (build page, notification email,
+`calculator-nginx` as *healthy*. The screenshots in the appendix (stage view, build page, notification email,
 `docker ps`, sample API responses) are also in `docs/screenshots/`. For the live demo, a code change is
 pushed to GitHub and the pipeline deploys it automatically.
 
 \newpage
 
 # Appendix: Screenshots
+
+![Jenkins stage view: builds #1 to #3 green in every stage (#2 and #3 each built a new commit)](screenshots/jenkins-pipeline.png){ width=100% }
 
 ![Jenkins build #2: successful run with tests passing](screenshots/jenkins-build.png){ width=100% }
 
