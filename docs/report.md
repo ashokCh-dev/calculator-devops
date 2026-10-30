@@ -100,13 +100,35 @@ covers `target/`, IDE files, `.env` and key files, and no secrets are committed.
 
 # 6. Results
 
-All stages pass on every push (builds #3 and #4 were started automatically by an SCM change). The
-image is on Docker Hub and the stack is healthy.
+All stages pass on every push. Builds #3 to #7 were started automatically by Poll SCM
+("Started by an SCM change") with no manual step. The image is on Docker Hub and the stack is healthy.
 
 ![Jenkins stage view: all stages green](report-images/jenkins-pipeline.png){ width=100% }
 
 ![`docker ps`: both API replicas and the Nginx proxy healthy](report-images/docker-ps.png){ width=100% }
 
-![Build status email from Jenkins](report-images/email-notification.png){ width=50% }
-
 ![Sample API responses through Nginx (port 8090)](report-images/api-responses.png){ width=100% }
+
+\newpage
+
+![Build status email sent by Jenkins](report-images/email-notification.png){ width=62% }
+
+![Docker Hub: image pushed by the pipeline (tags `latest` and build numbers)](report-images/docker-hub.png){ width=100% }
+
+![GitHub: both feature-branch pull requests merged into `main`](report-images/github-prs.png){ width=78% }
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}l l l@{}}
+\hline
+\textbf{Build} & \textbf{Cause shown by Jenkins} & \textbf{Result} \\
+\hline
+\#7 & Started by an SCM change & SUCCESS \\
+\#6 & Started by an SCM change & SUCCESS \\
+\#5 & Started by an SCM change & SUCCESS \\
+\#4 & Started by an SCM change & SUCCESS \\
+\#3 & Started by an SCM change & SUCCESS \\
+\hline
+\end{tabular}
+\caption{Poll SCM proof: each push started a build automatically (\#1 and \#2 were started manually for setup)}
+\end{table}
