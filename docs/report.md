@@ -100,7 +100,7 @@ covers `target/`, IDE files, `.env` and key files, and no secrets are committed.
 
 # 6. Results
 
-All stages pass on every push. Builds #3 to #7 were started automatically by Poll SCM
+All stages pass on every push. Builds #3 to #8 were started automatically by Poll SCM
 ("Started by an SCM change") with no manual step. The image is on Docker Hub and the stack is healthy.
 
 ![Jenkins stage view: all stages green](report-images/jenkins-pipeline.png){ width=100% }
@@ -117,18 +117,4 @@ All stages pass on every push. Builds #3 to #7 were started automatically by Pol
 
 ![GitHub: both feature-branch pull requests merged into `main`](report-images/github-prs.png){ width=78% }
 
-\begin{table}[H]
-\centering
-\begin{tabular}{@{}l l l@{}}
-\hline
-\textbf{Build} & \textbf{Cause shown by Jenkins} & \textbf{Result} \\
-\hline
-\#7 & Started by an SCM change & SUCCESS \\
-\#6 & Started by an SCM change & SUCCESS \\
-\#5 & Started by an SCM change & SUCCESS \\
-\#4 & Started by an SCM change & SUCCESS \\
-\#3 & Started by an SCM change & SUCCESS \\
-\hline
-\end{tabular}
-\caption{Poll SCM proof: each push started a build automatically (\#1 and \#2 were started manually for setup)}
-\end{table}
+![Poll SCM: build #8 started automatically for commit `6c54929` right after it was pushed](report-images/poll-scm-build.png){ width=100% }
