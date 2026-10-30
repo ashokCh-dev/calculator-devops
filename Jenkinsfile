@@ -17,6 +17,7 @@ pipeline {
         IMAGE_NAME   = 'ashokch11/calculator-devops'
         IMAGE_TAG    = "${env.BUILD_NUMBER}"
         PROXY_PORT   = '8090'
+        NOTIFY_EMAIL = 'ashokreddy.ch1145@gmail.com'
     }
 
     stages {
@@ -96,6 +97,27 @@ pipeline {
     }
 
     post {
+        success {
+            emailext(
+                to: "${NOTIFY_EMAIL}",
+                subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """<p>Build <b>#${env.BUILD_NUMBER}</b> of <b>${env.JOB_NAME}</b> succeeded.</p>
+                         <p>Image: ${IMAGE_NAME}:${IMAGE_TAG}</p>
+                         <p>App: http://localhost:${PROXY_PORT}/api/v1/add?a=2&amp;b=3</p>
+                         <p>Build log: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>""",
+                mimeType: 'text/html'
+            )
+        }
+        failure {
+            emailext(
+                to: "${NOTIFY_EMAIL}",
+                subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """<p>Build <b>#${env.BUILD_NUMBER}</b> of <b>${env.JOB_NAME}</b> failed.</p>
+                         <p>Check the console output: <a href="${env.BUILD_URL}console">${env.BUILD_URL}console</a></p>""",
+                mimeType: 'text/html',
+                attachLog: true
+            )
+        }
         always {
             // clean up dangling layers from repeated image builds
             sh 'docker image prune -f || true'
