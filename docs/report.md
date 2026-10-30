@@ -13,7 +13,6 @@ header-includes:
 
 \begin{center}
 {\Large\bfseries CI/CD Pipeline for a Calculator REST API}\\[3pt]
-CSE 816 Software Production Engineering, Mini-Project\\[2pt]
 Ashok Reddy (IMT2023083) \quad · \quad 30 October 2026
 \end{center}
 
