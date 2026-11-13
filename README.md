@@ -191,4 +191,4 @@ Jenkins credentials store.
 3. The new image `ashokch11/calculator-devops:<build>` appears on Docker Hub.
 4. `docker ps` shows the containers recreated with the new tag, and the API on
    `http://localhost:8090` serves the change.
-5. The result email arrives.
+5. The result email arrives
