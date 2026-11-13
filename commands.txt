@@ -1,0 +1,13 @@
+curl "http://localhost:8090/api/v1/add?a=2&b=3"       
+curl "http://localhost:8090/api/v1/subtract?a=10&b=4" 
+curl "http://localhost:8090/api/v1/multiply?a=6&b=7"    
+curl "http://localhost:8090/api/v1/divide?a=7&b=2"     
+
+curl "http://localhost:8090/api/v1/divide?a=1&b=0"      
+curl "http://localhost:8090/api/v1/add?a=1"             
+curl "http://localhost:8090/api/v1/add?a=abc&b=1"      
+
+curl "http://localhost:8090/actuator/health"          
+
+
+for i in 1 2 3 4; do curl -si "http://localhost:8090/actuator/info" | grep -E 'X-Upstream|instance'; done
